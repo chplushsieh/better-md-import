@@ -85,9 +85,15 @@ def convert_paper_to_notion_markdown(lines: List[str]) -> List[str]:
             
             # Check if this is the case:
             need_special_char = True
+            need_indent = 0
             if i > 0 and i + 1 < total:
                 prev_line = lines[i - 1].rstrip("\n")
                 next_line = lines[i + 1].rstrip("\n")
+                # get indent of both previous and next line
+                prev_indent = len(prev_line) - len(prev_line.lstrip())
+                next_indent = len(next_line) - len(next_line.lstrip())
+                need_indent = max(prev_indent, next_indent)
+
                 # if one of the neighboring lines is a quote, then 
                 # we don't need to insert a special character
                 if QUOTE_RE.match(prev_line) or QUOTE_RE.match(next_line):
@@ -100,7 +106,7 @@ def convert_paper_to_notion_markdown(lines: List[str]) -> List[str]:
                     need_special_char = False
             
             if need_special_char:
-                converted.append("␣")
+                converted.append(" "*need_indent + "␣")
         
         # Default: pass through unchanged
         converted.append(line)
