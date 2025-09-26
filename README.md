@@ -1,5 +1,8 @@
 This script helps with migrating notes from Dropbox Paper to Notion.
 
+![Comparison](/demo/side-by-side-comparison.png?raw=true "Comparison")
+On the left is a Dropbox Paper note imported directly into Notion. On the right, the Paper note is converted before being imported into Notion.
+
 ### Problem
 If you export a Dropbox Paper document as a .md file, and import it into Notion.
 The formatting will be off:
