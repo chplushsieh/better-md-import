@@ -11,9 +11,5 @@ This is a paragraph, preceded by a line break.
 
 This is a paragraph, preceded by a line break.
 
-    > This is a quote.
-
-
-> This is a quote, preceded by a line break.
 
 

@@ -4,15 +4,16 @@ This script helps with migrating notes from Dropbox Paper to Notion.
 If you export a Dropbox Paper document as a .md file, and import it into Notion.
 The formatting will be off:
 1. Blank lines between paragraphs are not preserved.
-2. Quotes will not be imported as quotes.
-3. Indented checklists are often not recognized as checklists.
+2. Indented checklists are often not recognized as checklists.
+3. Sometimes quotes will not be imported as quotes.
 4. ... and more.
 
 You will then have to painstakingly fix it manually.
 
 ### Solution
-I wrote this script to fix the first 3 issues listed above, so that I can spend less time fixing it manually.
+I wrote this script to fix the first three issues listed above, so that I can spend less time fixing it manually. 
 (It may help with importing into other note taking software as well. )
+This script does not fix all the issues, and you will still need to manually fix some remaining issues.
 
 ### Installation
 Install Python 3.
