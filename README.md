@@ -31,8 +31,8 @@ python3 convert.py ~/Downloads/Paper_Note.md ~/Downloads/
 ```
 
 3. The converted output file will have the same name as the input file, except that underscores will be replaced with spaces. So in this case, `~/Downloads/Paper Note.md` is generated.
-4. Import the converted file into Notion. This converted file will be formatted by Notion better than a direct import.
-5. You likely still need to manually fix some remaining issues not handled by this script.
+4. Import the converted file into Notion. You will notice that there are a lot of weird characters of `␣` in the imported Notion note. This is a side effect of the script's attempt to preserve blank lines between paragraphs. In Notion, hit `Ctrl+F`, search for `␣`, and replace all with either a space or nothing.
+5. Compare with the original note and manually fix some remaining issues not handled by this script.
 
 ### Failure Cases
 - If a quote is followed by a deeper indented bullet point in a Dropbox Paper document, Notion does not support that.
