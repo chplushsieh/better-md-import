@@ -1,7 +1,13 @@
-This script helps with migrating notes from Dropbox Paper to Notion.
+This script helps with migrating notes between Dropbox Paper, Notion, and Obsidian.
+Specifically, it helps with Paper->Notion, Paper->Obsidian, and Notion->Obsidian.
 
 ![Comparison](/demo/side-by-side-comparison.png?raw=true "Comparison")
 On the left is a Dropbox Paper note imported directly into Notion. On the right, the Paper note is converted before being imported into Notion.
+
+### Installation
+Install Python 3.
+
+## Use case: Dropbox Paper -> Notion
 
 ### Problem
 If you export a Dropbox Paper document as a .md file, and import it into Notion.
@@ -15,11 +21,8 @@ You will then have to painstakingly fix it manually.
 
 ### Solution
 I wrote this script to fix the first three issues listed above, so that I can spend less time fixing it manually. 
-(It may help with importing into other note taking software as well. )
 This script does not fix all the issues, and you will still need to manually fix some remaining issues.
 
-### Installation
-Install Python 3.
 
 ### Usage
 1. Export a Dropbox Paper document as .md file. Let's say it's named `Paper_Note.md`.
@@ -43,3 +46,10 @@ python3 convert.py ~/Downloads/Paper_Note.md ~/Downloads/
   - The bullet point will be imported by Notion as a (plain text) code block.
   - It's not just Notion can't import it properly. It's that this is just not allowed on Notion's editor at all.
   - The only workaround I found is to also quote the deeply indented point. But that looks weird to me, and it's a hassle to implement that. So I just don't handle this case.
+
+
+## Use case: Dropbox Paper -> Obsidian
+...
+
+## Usage: Notion -> Obsidian
+...
