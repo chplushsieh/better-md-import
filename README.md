@@ -1,5 +1,5 @@
-This script helps with migrating notes between Dropbox Paper, Notion, and Obsidian.
-Specifically, it helps with Paper->Notion, Paper->Obsidian, and Notion->Obsidian.
+This script helps with migrating notes from Dropbox Paper.
+Specifically, it makes Paper->Notion migration, and Paper->Obsidian migration less painful.
 
 ![Comparison](/demo/side-by-side-comparison.png?raw=true "Comparison")
 On the left is a Dropbox Paper note imported directly into Notion. On the right, the Paper note is converted before being imported into Notion.
@@ -30,11 +30,11 @@ If you directly import it into Notion, the formatting will be quite off, as ment
 
 2. Run the script:
 ```
-python3 convert.py <input file> <output save folder>
+python3 convert.py --line-break-trick <input file> <output save folder>
 ```
 In this case:
 ```
-python3 convert.py ~/Downloads/Paper_Note.md ~/Downloads/
+python3 convert.py --line-break-trick ~/Downloads/Paper_Note.md ~/Downloads/
 ```
 
 3. The converted output file will have the same name as the input file, except that underscores will be replaced with spaces. So in this case, `~/Downloads/Paper Note.md` is generated.
@@ -49,7 +49,7 @@ python3 convert.py ~/Downloads/Paper_Note.md ~/Downloads/
 
 
 ## Use case: Dropbox Paper -> Obsidian
-...
+```
+python3 convert.py <input file> <output save folder>
+```
 
-## Usage: Notion -> Obsidian
-...

@@ -23,7 +23,8 @@ CHECKBOX_ALREADY_LIST_RE = re.compile(r"^(\s*)-\s*\[\s*[xX ]\s*\]\s+.*$")
 QUOTE_RE = re.compile(r"^(\s*)>\s?.*$")
 
 
-def convert_paper_to_notion_markdown(lines: List[str]) -> List[str]:
+def convert_paper_to_notion_markdown(lines: List[str],
+    line_break_trick_enabled: bool) -> List[str]:
     converted: List[str] = []
     i = 0
     total = len(lines)
@@ -81,7 +82,7 @@ def convert_paper_to_notion_markdown(lines: List[str]) -> List[str]:
             continue
 
         # If the line is empty, insert a new line of a rare character before it
-        if line == "":
+        if line == "" and line_break_trick_enabled:
             
             # Check if this is the case:
             need_special_char = True
@@ -121,6 +122,9 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Convert Dropbox Paper Markdown to Notion-friendly Markdown.")
     parser.add_argument("input_path", help="Path to the input Markdown file from Paper")
     parser.add_argument("output_dir", help="Directory to write the converted Markdown file")
+    parser.add_argument("--line-break-trick", action="store_true", 
+        default=False,
+        help="Enable line break trick. This will insert a rare character at the beginning of each empty line.")
     args = parser.parse_args()
 
     input_path = os.path.abspath(args.input_path)
@@ -134,7 +138,8 @@ def main() -> None:
     with open(input_path, "r", encoding="utf-8") as f:
         lines = f.readlines()
 
-    converted_lines = convert_paper_to_notion_markdown(lines)
+    converted_lines = convert_paper_to_notion_markdown(lines, 
+        line_break_trick_enabled=args.line_break_trick)
 
     # Notes exported from Dropbox Paper have an underscore in the filename
     # Replace underscores with spaces in the filename
